@@ -28,6 +28,11 @@ const prescriptionSchema = new Schema({
     type: String,
     trim: true,
   },
+  // createdBy: {
+  //   type: mongoose.Types.ObjectId,
+  //   ref: 'User',
+  //   required: [true, 'Please provide user'],
+  // },
 });
 
 // This creates our model from the above schema, using mongoose's model method

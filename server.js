@@ -97,7 +97,8 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // configurePassport
-const configurePassport = require('./controllers/passport')
+const configurePassport = require('./controllers/passport');
+const scheduler = require('./scheduler');
 
 const passport = configurePassport(app, mongoose, User)
 
@@ -109,7 +110,7 @@ app.use(routes(passport, User));
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
-
+scheduler.start();
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

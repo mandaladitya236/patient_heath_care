@@ -3,15 +3,6 @@ const mongoose = require('mongoose');
 // Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-// more about RegEx Patterns here https://www.regexbuddy.com/regex.html
-// for now this is linked normally to a doctors visit/phone call where you might need to record
-// the discussion and changes to meds, what needs to be done next for the patient, etc.
-// in order to create a healthlog we will require the following: date of appointment
-// doctor seen, clinic, visitPurpose,
-// height, weight, notes
-// links to lab or summary printout
-// nextAppointment
-
 // new DoctorSchema object for login purposes
 const HealthLogSchema = new Schema({
   date: {
@@ -41,6 +32,14 @@ const HealthLogSchema = new Schema({
   weightLb: {
     type: Number,
     trim: true,
+  },
+  bp:{
+    type:Number,
+    trim:true,
+  },
+  gluccoselevels:{
+    type:Number,
+    trim:true,
   },
   // `date` must be of type Date. The default value is the current date
   userCreated: {
